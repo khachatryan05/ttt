@@ -1,0 +1,8 @@
+import pandas as pd
+pd.set_option('display.max_columns', None)
+data = pd.read_csv('titanic.csv')
+new_data = data.dropna()
+srv = data[data.Survived == 1]
+nsrv = data[data.Survived == 0]
+print(((srv.Age.sum())/(srv.Age.count())))
+print(((nsrv.Age.sum())/(nsrv.Age.count())))
