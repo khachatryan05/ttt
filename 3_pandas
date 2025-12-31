@@ -1,0 +1,10 @@
+import pandas as pd
+pd.set_option('display.max_columns', None)
+data = pd.read_csv('titanic.csv')
+new_data = data.dropna()
+fml = data[data.Sex == 'female']
+ml = data[data.Sex== 'male']
+print((data.Survived == 1).sum())
+print(((data.Survived == 1).sum()*100)/(data.Survived).count())
+print(((fml.Survived == 1).sum()*100)/(fml.Survived).count())
+print(((ml.Survived == 1).sum()*100)/(ml.Survived).count())
