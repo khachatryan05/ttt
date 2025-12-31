@@ -1,0 +1,12 @@
+import pandas as pd
+pd.set_option('display.max_columns', None)
+data = pd.read_csv('titanic.csv')
+ages = data['Age'].dropna().tolist()
+ages.sort()
+if len(ages) % 2 != 0:
+    p = ages[len(ages)//2]
+else:
+    p = (ages[len(ages)//2-1]+ages[len(ages)//2])/2
+print(p)
+new_data = data['Age'].fillna(p)
+print(new_data)
